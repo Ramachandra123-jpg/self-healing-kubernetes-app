@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 
@@ -29,18 +30,25 @@ spec:
 
       containers:
         - name: api
-
-          image: self-healing-api:v1
+          image: self-healing-api:v3
           imagePullPolicy: IfNotPresent
 
           ports:
-            - containerPort: 8000
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: DATABASE_URL
 
           resources:
             requests:
               cpu: "100m"
               memory: "128Mi"
-
             limits:
               cpu: "500m"
               memory: "256Mi"
@@ -82,3 +90,4 @@ spec:
       volumes:
         - name: tmp
           emptyDir: {}
+

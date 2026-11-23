@@ -1,11 +1,6 @@
-.git
-.gitignore
-__pycache__
+.venv/
+venv/
+app/venv/
+__pycache__/
 *.pyc
-*.pyo
-venv
 .env
-.pytest_cache
-.idea
-.vscode
-README.md

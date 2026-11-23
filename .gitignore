@@ -1,9 +1,27 @@
-venv/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+venv/
+env/
+locust-env/
+
+# Environment variables and secrets
 .env
-*.log
-.pytest_cache/
-.idea/
+.env.*
+!.env.example
+secrets/
+*.secret.yaml
+
+# Kubernetes local files
+.kube/
+
+# IDE
 .vscode/
+.idea/
+
+# OS
 .DS_Store
+
+# Logs
+*.log
